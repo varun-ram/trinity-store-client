@@ -1,0 +1,9 @@
+.container {
+    text-align: center;
+}
+.carousel-item{
+    height: 450px;
+} 
+.carousel-item img{
+    height: 450px;
+}
