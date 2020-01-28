@@ -4,6 +4,7 @@ import { ShopComponent } from './app/shop/shop.component';
 import { AboutComponent } from './app/about/about.component';
 import { LoginComponent } from './app/login/login.component';
 import { ProductsComponent } from './app/products/products.component';
+import { SignupComponent } from './app/signup/signup.component'
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -11,5 +12,6 @@ export const appRoutes: Routes = [
     { path: 'products', component: ProductsComponent},
     { path: 'about', component: AboutComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]
