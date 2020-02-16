@@ -1,0 +1,113 @@
+<div class="container">
+    <br />
+    <h3>SIGN UP</h3>
+    <hr />
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <em *ngIf="mouseOverSubmit && !firstName.valid">Required</em>
+                    <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName"
+                        name="firstName" #firstName="ngModel">
+                    <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                        Please enter your First Name.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <em *ngIf="mouseOverSubmit && !lastName.valid">Required</em>
+                    <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName"
+                        name="lastName" #lastName="ngModel">
+                    <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+                        Please enter your Last Name.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="emailId">Email ID</label>
+                    <em *ngIf="mouseOverSubmit && !emailId.valid">Required</em>
+                    <input type="text" class="form-control" id="emailId" required [(ngModel)]="user.emailId"
+                        name="emailId" #emailId="ngModel">
+                    <div [hidden]="emailId.valid || emailId.pristine" class="alert alert-danger">
+                        Please enter your Email ID.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <em *ngIf="mouseOverSubmit && !password.valid">Required</em>
+                    <input type="password" class="form-control" id="password" required [(ngModel)]="userPassword"
+                        name="password" #password="ngModel">
+                    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                        Please enter your Password.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="reTypePassword">Re-Type Password</label>
+                    <em *ngIf="mouseOverSubmit && !reTypePassword.valid">Required</em>
+                    <input type="password" class="form-control" id="reTypePassword" required [(ngModel)]="userReTypePassword"
+                        name="reTypePassword" #reTypePassword="ngModel">
+                    <div [hidden]="reTypePassword.valid || reTypePassword.pristine" class="alert alert-danger">
+                        Please Retype your Password.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="phoneNo">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNo" [(ngModel)]="user.phoneNo" name="phoneNo">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="houseNo">House Number</label>
+                    <em *ngIf="mouseOverSubmit && !houseNo.valid">Required</em>
+                    <input type="text" class="form-control" id="houseNo" required [(ngModel)]="user.houseNo"
+                        name="houseNo" #houseNo="ngModel">
+                    <div [hidden]="houseNo.valid || houseNo.pristine" class="alert alert-danger">
+                        Please enter your House Number.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="houseSide">House Side</label>
+                    <em *ngIf="mouseOverSubmit && user.houseSide===undefined">Required</em>
+                    <select class="form-control" id="houseSide" required [(ngModel)]="user.houseSide" name="houseSide"
+                        placeholder="East/West">
+                        <option [ngValue]="undefined" hidden>Select EAST/WEST</option>
+                        <option *ngFor="let side of houseSide" [value]="side">{{side}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <span (mouseenter)="mouseOverSubmit=true" (mouseleave)="mouseOverSubmit=false">
+            <button type="submit" class="btn btn-success" [disabled]="!signupForm.form.valid">Sign Up</button>
+        </span>
+        &nbsp;
+        <button type="cancel" class="btn btn-danger">Cancel</button>
+        <br />
+
+    </form>
+</div>

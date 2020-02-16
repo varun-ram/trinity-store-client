@@ -2,20 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TabnavComponent } from './tabnav/tabnav.component';
 import { HomeComponent } from './home/home.component';
-
-import {NotificationService} from './shared/notification.service';
-
-import {appRoutes} from '../routes';
-import { RouterModule } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 import { AboutComponent } from './about/about.component';
-import { LoginComponent } from './login/login.component';
-import { ProductsComponent } from './products/products.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './user/login/login.component';
+import { ProductsComponent } from './product/products.component';
+import { SignupComponent } from './user/signup/signup.component';
+
+import {NotificationService} from './shared/notification/notification.service';
+
+import {appRoutes} from '../routes';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SignupComponent } from './signup/signup.component';
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    HttpClientModule
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent]

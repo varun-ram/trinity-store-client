@@ -1,0 +1,40 @@
+<div class="container">
+    <br />
+    <h3>LOGIN</h3>
+    <hr />
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="loginId">Login ID</label>
+                    <em *ngIf="mouseOverSubmit && !loginId.valid">Required</em>
+                    <input type="text" class="form-control" id="loginId" required [(ngModel)]="userLoginId"
+                        name="loginId" #loginId="ngModel">
+                    <div [hidden]="loginId.valid || loginId.pristine" class="alert alert-danger">
+                        Please enter your Login ID.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <em *ngIf="mouseOverSubmit && !password.valid">Required</em>
+                    <input type="password" class="form-control" id="password" required [(ngModel)]="userPassword"
+                        name="password" #password="ngModel">
+                    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+                        Please enter your Password.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span (mouseenter)="mouseOverSubmit=true" (mouseleave)="mouseOverSubmit=false">
+            <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
+        </span>
+        &nbsp;
+        <button type="cancel" [routerLink]="['/shop']" class="btn btn-danger">Cancel</button>
+        <br />
+    </form>
+</div>
